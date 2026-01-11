@@ -23,8 +23,8 @@
                     <label class="product-detail__file-label">
                         <span class="product-detail__file-button">ファイルを選択</span>
                         <input type="file" name="image" class="product-detail__file" id="image-input" accept=".png,.jpeg,.jpg">
-                        <span class="product-detail__file-name" id="file-name"></span>
                     </label>
+                    <span class="product-detail__file-name" id="file-name">{{ basename($product->image) }}</span>
                 </div>
                 @error('image')
                 <p class="product-detail__error">{{ $message }}</p>

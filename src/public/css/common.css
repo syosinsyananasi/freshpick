@@ -16,10 +16,10 @@ body {
 }
 
 .header__logo {
+  font-family: 'Pacifico', cursive;
   font-size: 24px;
-  font-weight: bold;
+  font-weight: normal;
   color: #f5c518;
-  font-style: italic;
 }
 
 .main {

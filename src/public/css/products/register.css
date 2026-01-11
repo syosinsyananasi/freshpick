@@ -64,10 +64,11 @@
 .product-register__file-button {
   display: inline-block;
   padding: 10px 20px;
-  background-color: #fff;
-  border: 1px solid #ddd;
+  background-color: #E2E1E0;
+  border: 2px solid #BFBFBF;
   border-radius: 5px;
   font-size: 14px;
+  color: #BFBFBF;
 }
 
 .product-register__file {
@@ -102,6 +103,24 @@
   font-size: 14px;
   color: #333;
   cursor: pointer;
+}
+
+.product-register__season-label input[type="checkbox"] {
+  appearance: none;
+  -webkit-appearance: none;
+  width: 20px;
+  height: 20px;
+  border: 2px solid #333;
+  border-radius: 50%;
+  cursor: pointer;
+}
+
+.product-register__season-label input[type="checkbox"]:checked {
+  background-color: #333;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='white'%3E%3Cpath d='M9 16.17L4.83 12l-1.42 1.41L9 19 21 7l-1.41-1.41z'/%3E%3C/svg%3E");
+  background-size: 14px;
+  background-position: center;
+  background-repeat: no-repeat;
 }
 
 .product-register__textarea {
@@ -146,8 +165,8 @@
 
 .product-register__submit-btn {
   padding: 12px 60px;
-  background-color: #f5c518;
-  color: #fff;
+  background-color: #F5C800;
+  color: #5E5942;
   border: none;
   border-radius: 5px;
   font-weight: bold;

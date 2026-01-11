@@ -16,8 +16,8 @@
 }
 
 .products__add-btn {
-  background-color: #f5c518;
-  color: #fff;
+  background-color: #FFA929;
+  color: #746044;
   padding: 10px 20px;
   border-radius: 5px;
   font-weight: bold;
@@ -48,8 +48,8 @@
 
 .search-form__button {
   width: 100%;
-  background-color: #f5c518;
-  color: #fff;
+  background-color: #F5C800;
+  color: #5E5942;
   padding: 10px;
   border: none;
   border-radius: 5px;
@@ -68,6 +68,7 @@
 
 .search-form__sort-label {
   font-size: 14px;
+  font-weight: bold;
   color: #333;
   margin-bottom: 8px;
 }
@@ -95,9 +96,17 @@
 }
 
 .search-form__tag-close {
-  font-size: 16px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 20px;
+  height: 20px;
+  font-size: 14px;
   cursor: pointer;
   margin-left: 5px;
+  border: 1px solid #f5c518;
+  border-radius: 50%;
+  color: #f5c518;
 }
 
 .products__grid {

@@ -4,6 +4,7 @@ namespace Database\Seeders;
 
 use Illuminate\Database\Seeder;
 use Illuminate\Support\Facades\DB;
+use Illuminate\Support\Facades\File;
 
 class ProductsTableSeeder extends Seeder
 {
@@ -14,6 +15,38 @@ class ProductsTableSeeder extends Seeder
      */
     public function run()
     {
+        // 画像ファイルをコピー
+        $sourceDir = database_path('seeders/fruits-img');
+        $targetDir = storage_path('app/public/products');
+
+        // ターゲットディレクトリが存在しない場合は作成
+        if (!File::exists($targetDir)) {
+            File::makeDirectory($targetDir, 0755, true);
+        }
+
+        // 画像ファイルをコピー
+        $images = [
+            'kiwi.png',
+            'strawberry.png',
+            'orange.png',
+            'watermelon.png',
+            'peach.png',
+            'muscat.png',
+            'pineapple.png',
+            'grapes.png',
+            'banana.png',
+            'melon.png',
+        ];
+
+        foreach ($images as $image) {
+            $source = $sourceDir . '/' . $image;
+            $target = $targetDir . '/' . $image;
+
+            if (File::exists($source)) {
+                File::copy($source, $target);
+            }
+        }
+
         $products = [
             [
                 'name' => 'キウイ',

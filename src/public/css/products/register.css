@@ -6,7 +6,7 @@
 .product-register__title {
   font-size: 24px;
   font-weight: bold;
-  color: #333;
+  color: #333333;
   margin-bottom: 30px;
 }
 
@@ -20,14 +20,14 @@
   gap: 10px;
   font-size: 14px;
   font-weight: bold;
-  color: #333;
+  color: #333333;
   margin-bottom: 10px;
 }
 
 .product-register__required {
   padding: 2px 8px;
   background-color: #e74c3c;
-  color: #fff;
+  color: #ffffff;
   font-size: 11px;
   font-weight: normal;
   border-radius: 3px;
@@ -42,13 +42,13 @@
 .product-register__input {
   width: 100%;
   padding: 12px;
-  border: 1px solid #ddd;
+  border: 1px solid #dddddd;
   border-radius: 5px;
   font-size: 14px;
 }
 
 .product-register__input::placeholder {
-  color: #aaa;
+  color: #aaaaaa;
 }
 
 .product-register__file-wrapper {
@@ -77,7 +77,7 @@
 
 .product-register__file-name {
   font-size: 14px;
-  color: #666;
+  color: #666666;
 }
 
 .product-register__preview {
@@ -101,7 +101,7 @@
   align-items: center;
   gap: 5px;
   font-size: 14px;
-  color: #333;
+  color: #333333;
   cursor: pointer;
 }
 
@@ -110,13 +110,13 @@
   -webkit-appearance: none;
   width: 20px;
   height: 20px;
-  border: 2px solid #333;
+  border: 2px solid #333333;
   border-radius: 50%;
   cursor: pointer;
 }
 
 .product-register__season-label input[type="checkbox"]:checked {
-  background-color: #333;
+  background-color: #333333;
   background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='white'%3E%3Cpath d='M9 16.17L4.83 12l-1.42 1.41L9 19 21 7l-1.41-1.41z'/%3E%3C/svg%3E");
   background-size: 14px;
   background-position: center;
@@ -127,18 +127,18 @@
   width: 100%;
   height: 150px;
   padding: 12px;
-  border: 1px solid #ddd;
+  border: 1px solid #dddddd;
   border-radius: 5px;
   font-size: 14px;
   resize: vertical;
 }
 
 .product-register__textarea::placeholder {
-  color: #aaa;
+  color: #aaaaaa;
 }
 
 .product-register__error {
-  color: #f5c518;
+  color: #e74c3c;
   font-size: 12px;
   margin-top: 5px;
 }
@@ -152,8 +152,8 @@
 
 .product-register__back-btn {
   padding: 12px 60px;
-  background-color: #ccc;
-  color: #333;
+  background-color: #cccccc;
+  color: #333333;
   border-radius: 5px;
   font-weight: bold;
   transition: opacity 0.3s;

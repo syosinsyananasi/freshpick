@@ -51,16 +51,14 @@
 
 .product-detail__file-input {
   display: flex;
-  align-items: center;
+  align-items: flex-start;
   gap: 10px;
   margin-top: 10px;
 }
 
 .product-detail__file-label {
-  display: flex;
-  align-items: center;
-  gap: 10px;
   cursor: pointer;
+  flex-shrink: 0;
 }
 
 .product-detail__file-button {
@@ -79,6 +77,9 @@
 .product-detail__file-name {
   font-size: 14px;
   color: #666666;
+  word-break: break-all;
+  line-height: 1.5;
+  flex: 1;
 }
 
 .product-detail__info-section {

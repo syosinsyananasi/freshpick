@@ -4,6 +4,10 @@
 <link rel="stylesheet" href="{{ asset('css/products/register.css') }}">
 @endsection
 
+@section('js')
+<script src="{{ asset('js/products/register.js') }}"></script>
+@endsection
+
 @section('content')
 <div class="product-register">
     <h1 class="product-register__title">商品登録</h1>
@@ -89,19 +93,4 @@
         </div>
     </form>
 </div>
-
-<script>
-document.getElementById('image-input').addEventListener('change', function(e) {
-    var file = e.target.files[0];
-    if (file) {
-        document.getElementById('file-name').textContent = file.name;
-        document.getElementById('preview-wrapper').style.display = 'block';
-        var reader = new FileReader();
-        reader.onload = function(e) {
-            document.getElementById('preview-image').src = e.target.result;
-        };
-        reader.readAsDataURL(file);
-    }
-});
-</script>
 @endsection

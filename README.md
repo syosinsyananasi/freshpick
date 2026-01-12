@@ -2,7 +2,6 @@
 
 FreshPick は生鮮食品の商品管理アプリケーションです。商品の登録・編集・削除、検索、並び替え機能を備えています。
 
-![商品一覧ページ](docs/design-ui/商品一覧ページ.png)
 
 ## 概要
 
@@ -40,14 +39,14 @@ FreshPick は生鮮食品の商品管理アプリケーションです。商品�
 1. リポジトリをクローン
 
 ```bash
-git clone <repository-url>
+git clone <rgit@github.com:syosinsyananasi/freshpick.git>
 cd freshpick
 ```
 
 2. Docker コンテナを起動
 
 ```bash
-docker-compose up -d
+docker-compose up -d --build
 ```
 
 3. PHP コンテナに入る
@@ -108,4 +107,4 @@ php artisan db:seed
 
 ## データベース設計
 
-ER図: [docs/relation.drawio.png](docs/relation.drawio.png)
+![ER図](docs/relation.drawio.png)

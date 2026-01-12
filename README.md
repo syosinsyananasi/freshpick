@@ -39,7 +39,7 @@ FreshPick は生鮮食品の商品管理アプリケーションです。商品�
 1. リポジトリをクローン
 
 ```bash
-git clone <rgit@github.com:syosinsyananasi/freshpick.git>
+git clone <git@github.com:syosinsyananasi/freshpick.git>
 cd freshpick
 ```
 

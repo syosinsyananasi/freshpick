@@ -114,10 +114,12 @@
   display: grid;
   grid-template-columns: repeat(3, 1fr);
   gap: 20px;
+  list-style: none;
+  padding: 0;
+  margin: 0;
 }
 
 .product-card {
-  display: block;
   background-color: #ffffff;
   border-radius: 10px;
   overflow: hidden;
@@ -128,6 +130,10 @@
 .product-card:hover {
   transform: translateY(-5px);
   box-shadow: 0 5px 15px #00000026;
+}
+
+.product-card__link {
+  display: block;
 }
 
 .product-card__image-wrapper {

@@ -62,15 +62,17 @@
                 <span class="product-register__required">必須</span>
                 <span class="product-register__note">複数選択可</span>
             </label>
-            <div class="product-register__seasons">
+            <ul class="product-register__seasons">
                 @foreach($seasons as $season)
-                <label class="product-register__season-label">
-                    <input type="checkbox" name="seasons[]" value="{{ $season->id }}"
-                        {{ in_array($season->id, old('seasons', [])) ? 'checked' : '' }}>
-                    {{ $season->name }}
-                </label>
+                <li class="product-register__season-item">
+                    <label class="product-register__season-label">
+                        <input type="checkbox" name="seasons[]" value="{{ $season->id }}"
+                            {{ in_array($season->id, old('seasons', [])) ? 'checked' : '' }}>
+                        {{ $season->name }}
+                    </label>
+                </li>
                 @endforeach
-            </div>
+            </ul>
             @error('seasons')
             <p class="product-register__error">{{ $message }}</p>
             @enderror

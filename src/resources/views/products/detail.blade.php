@@ -10,11 +10,16 @@
 
 @section('content')
 <div class="product-detail">
-    <div class="product-detail__breadcrumb">
-        <a href="/products" class="product-detail__breadcrumb-link">商品一覧</a>
-        <span class="product-detail__breadcrumb-separator">&gt;</span>
-        <span class="product-detail__breadcrumb-current">{{ $product->name }}</span>
-    </div>
+    <nav class="product-detail__breadcrumb" aria-label="パンくずリスト">
+        <ol class="product-detail__breadcrumb-list">
+            <li class="product-detail__breadcrumb-item">
+                <a href="/products" class="product-detail__breadcrumb-link">商品一覧</a>
+            </li>
+            <li class="product-detail__breadcrumb-item" aria-current="page">
+                {{ $product->name }}
+            </li>
+        </ol>
+    </nav>
 
     <form action="/products/{{ $product->id }}/update" method="POST" enctype="multipart/form-data" class="product-detail__form">
         @csrf
@@ -58,15 +63,17 @@
                     @php
                         $selectedSeasons = $errors->any() ? (old('seasons') ?? []) : old('seasons', $product->seasons->pluck('id')->toArray());
                     @endphp
-                    <div class="product-detail__seasons">
+                    <ul class="product-detail__seasons">
                         @foreach($seasons as $season)
-                        <label class="product-detail__season-label">
-                            <input type="checkbox" name="seasons[]" value="{{ $season->id }}"
-                                {{ in_array($season->id, $selectedSeasons) ? 'checked' : '' }}>
-                            {{ $season->name }}
-                        </label>
+                        <li class="product-detail__season-item">
+                            <label class="product-detail__season-label">
+                                <input type="checkbox" name="seasons[]" value="{{ $season->id }}"
+                                    {{ in_array($season->id, $selectedSeasons) ? 'checked' : '' }}>
+                                {{ $season->name }}
+                            </label>
+                        </li>
                         @endforeach
-                    </div>
+                    </ul>
                     @error('seasons')
                     <p class="product-detail__error">{{ $message }}</p>
                     @enderror

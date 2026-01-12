@@ -94,6 +94,13 @@
 .product-register__seasons {
   display: flex;
   gap: 30px;
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.product-register__season-item {
+  display: flex;
 }
 
 .product-register__season-label {

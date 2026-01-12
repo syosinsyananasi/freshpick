@@ -41,19 +41,21 @@
             </form>
         </div>
 
-        <div class="products__grid">
+        <ul class="products__grid">
             @foreach($products as $product)
-            <a href="/products/detail/{{ $product->id }}" class="product-card">
-                <div class="product-card__image-wrapper">
-                    <img src="{{ asset('storage/' . $product->image) }}" alt="{{ $product->name }}" class="product-card__image">
-                </div>
-                <div class="product-card__info">
-                    <p class="product-card__name">{{ $product->name }}</p>
-                    <p class="product-card__price">&yen;{{ $product->price }}</p>
-                </div>
-            </a>
+            <li class="product-card">
+                <a href="/products/detail/{{ $product->id }}" class="product-card__link">
+                    <div class="product-card__image-wrapper">
+                        <img src="{{ asset('storage/' . $product->image) }}" alt="{{ $product->name }}" class="product-card__image">
+                    </div>
+                    <div class="product-card__info">
+                        <p class="product-card__name">{{ $product->name }}</p>
+                        <p class="product-card__price">&yen;{{ $product->price }}</p>
+                    </div>
+                </a>
+            </li>
             @endforeach
-        </div>
+        </ul>
     </div>
 
     <div class="products__pagination">

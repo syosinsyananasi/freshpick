@@ -107,4 +107,4 @@ php artisan db:seed
 
 ## データベース設計
 
-![ER図](docs/relation.drawio.png)
+![ER図](docs/relation.jpg)

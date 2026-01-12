@@ -40,7 +40,6 @@ FreshPick は生鮮食品の商品管理アプリケーションです。商品�
 
 ```bash
 git clone git@github.com:syosinsyananasi/freshpick.git
-cd freshpick
 ```
 
 2. Docker コンテナを起動
@@ -61,7 +60,7 @@ docker-compose exec php bash
 composer install
 ```
 
-5. 環境設定ファイルを作成
+5. 環境設定ファイルを作成（環境変数を適宜変更）
 
 ```bash
 cp .env.example .env
@@ -98,12 +97,6 @@ php artisan db:seed
 - アプリケーション: http://localhost
 - phpMyAdmin: http://localhost:8080
 
-### phpMyAdmin ログイン情報
-
-- サーバー: mysql
-- ユーザー名: laravel_user
-- パスワード: laravel_pass
-- データベース: laravel_db
 
 ## データベース設計
 

@@ -1,1 +1,6 @@
 docker/mysql/data/
+
+# docs内のすべてを無視
+docs/*
+# relation.drawio.png だけ追跡する
+!docs/relation.drawio.png

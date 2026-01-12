@@ -33,9 +33,9 @@
                 </div>
 
                 @if(isset($sort) && $sort)
-                <div class="search-form__tag">
-                    <span class="search-form__tag-text">{{ $sort === 'high' ? '高い順に表示' : '低い順に表示' }}</span>
-                    <a href="/products" class="search-form__tag-close">&times;</a>
+                <div class="sort-modal">
+                    <span class="sort-modal__text">{{ $sort === 'high' ? '高い順に表示' : '低い順に表示' }}</span>
+                    <a href="/products" class="sort-modal__close">&times;</a>
                 </div>
                 @endif
             </form>

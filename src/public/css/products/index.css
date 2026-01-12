@@ -82,7 +82,7 @@
   cursor: pointer;
 }
 
-.search-form__tag {
+.sort-modal {
   display: inline-flex;
   align-items: center;
   gap: 5px;
@@ -95,7 +95,7 @@
   color: #F5C800;
 }
 
-.search-form__tag-close {
+.sort-modal__close {
   display: flex;
   justify-content: center;
   align-items: center;

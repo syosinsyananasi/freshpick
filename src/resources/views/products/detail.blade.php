@@ -14,9 +14,10 @@
 
     <form action="/products/{{ $product->id }}/update" method="POST" enctype="multipart/form-data" class="product-detail__form">
         @csrf
+        <input type="hidden" name="delete_image" id="delete-image-flag" value="{{ old('delete_image', '0') }}">
         <div class="product-detail__content">
             <div class="product-detail__image-section">
-                <div class="product-detail__image-wrapper">
+                <div class="product-detail__image-wrapper" id="image-wrapper" style="{{ old('delete_image', '0') === '1' ? 'display: none;' : '' }}">
                     <img src="{{ asset('storage/' . $product->image) }}" alt="{{ $product->name }}" class="product-detail__image" id="preview-image">
                 </div>
                 <div class="product-detail__file-input">
@@ -24,7 +25,7 @@
                         <span class="product-detail__file-button">ファイルを選択</span>
                         <input type="file" name="image" class="product-detail__file" id="image-input" accept=".png,.jpeg,.jpg">
                     </label>
-                    <span class="product-detail__file-name" id="file-name">{{ basename($product->image) }}</span>
+                    <span class="product-detail__file-name" id="file-name" style="{{ old('delete_image', '0') === '1' ? 'display: none;' : '' }}">{{ basename($product->image) }}</span>
                 </div>
                 @error('image')
                 <p class="product-detail__error">{{ $message }}</p>
@@ -50,11 +51,14 @@
 
                 <div class="product-detail__form-group">
                     <label class="product-detail__label">季節</label>
+                    @php
+                        $selectedSeasons = $errors->any() ? (old('seasons') ?? []) : old('seasons', $product->seasons->pluck('id')->toArray());
+                    @endphp
                     <div class="product-detail__seasons">
                         @foreach($seasons as $season)
                         <label class="product-detail__season-label">
                             <input type="checkbox" name="seasons[]" value="{{ $season->id }}"
-                                {{ in_array($season->id, old('seasons', $product->seasons->pluck('id')->toArray())) ? 'checked' : '' }}>
+                                {{ in_array($season->id, $selectedSeasons) ? 'checked' : '' }}>
                             {{ $season->name }}
                         </label>
                         @endforeach
@@ -91,13 +95,25 @@
 </div>
 
 <script>
+// ファイル選択ボタンをクリックした時の処理
+document.querySelector('.product-detail__file-button').addEventListener('click', function() {
+    // 既存の画像とファイル名を非表示にする
+    document.getElementById('image-wrapper').style.display = 'none';
+    document.getElementById('file-name').style.display = 'none';
+    // delete_imageフラグを'1'に設定
+    document.getElementById('delete-image-flag').value = '1';
+});
+
+// ファイルが選択された時の処理
 document.getElementById('image-input').addEventListener('change', function(e) {
     var file = e.target.files[0];
     if (file) {
         document.getElementById('file-name').textContent = file.name;
+        document.getElementById('file-name').style.display = 'inline';
         var reader = new FileReader();
         reader.onload = function(e) {
             document.getElementById('preview-image').src = e.target.result;
+            document.getElementById('image-wrapper').style.display = 'block';
         };
         reader.readAsDataURL(file);
     }

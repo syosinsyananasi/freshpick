@@ -13,13 +13,21 @@ class ProductUpdateRequest extends FormRequest
 
     public function rules()
     {
-        return [
+        $rules = [
             'name' => ['required'],
             'price' => ['required', 'numeric', 'min:0', 'max:10000'],
-            'image' => ['required', 'file', 'mimes:png,jpeg'],
             'seasons' => ['required', 'array'],
             'description' => ['required', 'max:120'],
         ];
+
+        // delete_imageが'1'で、かつ新しい画像がアップロードされていない場合は必須
+        if ($this->input('delete_image') === '1' && !$this->hasFile('image')) {
+            $rules['image'] = ['required', 'file', 'mimes:png,jpeg'];
+        } elseif ($this->hasFile('image')) {
+            $rules['image'] = ['file', 'mimes:png,jpeg'];
+        }
+
+        return $rules;
     }
 
     public function messages()

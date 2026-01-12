@@ -7,6 +7,7 @@ use App\Http\Requests\ProductUpdateRequest;
 use App\Models\Product;
 use App\Models\Season;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Storage;
 
 class ProductController extends Controller
 {
@@ -78,6 +79,11 @@ class ProductController extends Controller
         ];
 
         if ($request->hasFile('image')) {
+            // 古い画像を削除
+            if ($product->image && Storage::disk('public')->exists($product->image)) {
+                Storage::disk('public')->delete($product->image);
+            }
+
             $imagePath = $request->file('image')->store('products', 'public');
             $data['image'] = $imagePath;
         }
@@ -91,6 +97,12 @@ class ProductController extends Controller
     public function delete($productId)
     {
         $product = Product::findOrFail($productId);
+
+        // 画像を削除
+        if ($product->image && Storage::disk('public')->exists($product->image)) {
+            Storage::disk('public')->delete($product->image);
+        }
+
         $product->seasons()->detach();
         $product->delete();
 

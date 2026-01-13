@@ -94,7 +94,7 @@ php artisan db:seed
 
 セットアップ完了後、以下のURLでアクセスできます。
 
-- アプリケーション: http://localhost
+- アプリケーション: http://localhost/products
 - phpMyAdmin: http://localhost:8080
 
 
